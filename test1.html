@@ -3,57 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Test: ¿Tienes perfil de Ingeniero en Computación?</title>
+    <title>Mini Test: ¿Serías un buen Ingeniero en Computación?</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        button {
+            background: #008CBA;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: #005f73;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0px 0px 10px black;
+        }
+        .modal img {
+            width: 120px;
+            margin-top: 10px;
+        }
+        .close {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h2>¿Tienes perfil de Ingeniero en Computación?</h2>
-        <p>Responde estas preguntas y descubre tu nivel de afinidad con la tecnología.</p>
-        
+        <h2>¿Serías un buen Ingeniero en Computación? 🤖💻</h2>
+        <p>Responde estas preguntas y descubre tu destino tecnológico.</p>
+
         <form id="testForm">
-            <p>1. ¿Qué haces cuando tu computadora tiene un problema?</p>
-            <input type="radio" name="q1" value="3"> Investigo y trato de solucionarlo.<br>
-            <input type="radio" name="q1" value="2"> Pido ayuda.<br>
-            <input type="radio" name="q1" value="1"> Me frustro y lo dejo.<br><br>
+            <p>1. Tu computadora se congela en medio de tu juego favorito. ¿Qué haces?</p>
+            <input type="radio" name="q1" value="3"> 🛠️ Busco qué pasó y trato de arreglarlo. <br>
+            <input type="radio" name="q1" value="2"> 🎹🤪 Empiezo a apretar teclas como loco. <br>
+            <input type="radio" name="q1" value="1"> 🍔 Grito, apago todo y me voy a comer. <br><br>
 
-            <p>2. ¿Cómo te gustaría aprender programación?</p>
-            <input type="radio" name="q2" value="3"> Creando proyectos.<br>
-            <input type="radio" name="q2" value="2"> Viendo tutoriales.<br>
-            <input type="radio" name="q2" value="1"> No me interesa.<br><br>
+            <p>2. Tu hermanito te pregunta cómo funciona un videojuego. ¿Qué le dices?</p>
+            <input type="radio" name="q2" value="3"> 🖍️ Le explico con dibujitos y ejemplos. <br>
+            <input type="radio" name="q2" value="2"> 🧙‍♂️ "Es magia, ahora vete, estoy jugando". <br>
+            <input type="radio" name="q2" value="1"> 🎥 "No sé, pero dale like y suscríbete". <br><br>
 
-            <p>3. ¿Te interesaría trabajar en tecnología?</p>
-            <input type="radio" name="q3" value="3"> Sí, me encantaría.<br>
-            <input type="radio" name="q3" value="2"> Tal vez.<br>
-            <input type="radio" name="q3" value="1"> No, prefiero otras áreas.<br><br>
+            <p>3. Tienes que hacer una tarea larguísima. ¿Cuál es tu plan?</p>
+            <input type="radio" name="q3" value="3"> 🤓 Encuentro una forma de hacerla más rápido. <br>
+            <input type="radio" name="q3" value="2"> 😩 Me quejo, pero la hago igual. <br>
+            <input type="radio" name="q3" value="1"> 😎 Busco a alguien más que la haga por mí. <br><br>
 
-            <p>4. ¿Qué opinas de la inteligencia artificial?</p>
-            <input type="radio" name="q4" value="3"> Es el futuro.<br>
-            <input type="radio" name="q4" value="2"> Es interesante.<br>
-            <input type="radio" name="q4" value="1"> No me interesa.<br><br>
+            <p>4. Descubres algo que no entiendes. ¿Qué haces?</p>
+            <input type="radio" name="q4" value="3"> 💪 Busco información hasta entenderlo. <br>
+            <input type="radio" name="q4" value="2"> 🤷‍♂️ Pregunto, pero si es difícil, lo dejo. <br>
+            <input type="radio" name="q4" value="1"> 😂 Lo ignoro y sigo viendo memes. <br><br>
 
-            <p>5. ¿Qué te llama más la atención en la tecnología?</p>
-            <input type="radio" name="q5" value="3"> Crear soluciones.<br>
-            <input type="radio" name="q5" value="2"> Usarla.<br>
-            <input type="radio" name="q5" value="1"> Redes sociales.<br><br>
+            <p>5. ¿Por qué te gustaría trabajar con computadoras?</p>
+            <input type="radio" name="q5" value="3"> 💡 Me encanta descubrir cómo funcionan. <br>
+            <input type="radio" name="q5" value="2"> 🤔 Parece divertido, pero no sé si es lo mío. <br>
+            <input type="radio" name="q5" value="1"> 🦙 No me interesa, prefiero criar alpacas. <br><br>
 
             <button type="button" onclick="calcularResultado()">Ver resultado</button>
         </form>
+    </div>
 
-        <p class="resultado" id="resultado"></p>
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="resultado"></h3>
+            <img id="imagenResultado" src="" alt="Resultado">
+            <br>
+            <button class="close" onclick="cerrarModal()">Cerrar</button>
+        </div>
     </div>
 
     <script>
         function calcularResultado() {
             let total = 0;
             let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+
+            if (respuestas.length < 5) {
+                alert("❗ Responde todas las preguntas antes de ver tu resultado.");
+                return;
+            }
+
             respuestas.forEach(r => total += parseInt(r.value));
 
-            let resultadoTexto = total >= 12 ? "🚀 ¡Tienes un gran perfil para Ingeniería en Computación!" :
-                               total >= 8 ? "🔧 Tienes interés en tecnología." :
-                               "🎮 Te gusta la tecnología, pero podrías explorar más.";
+            let resultadoTexto = "";
+            let imagen = "";
+
+            if (total >= 12) {
+                resultadoTexto = "🚀 ¡Tienes alma de ingeniero en computación!";
+                imagen = "gato2.png"; // Cambia por el nombre de tu imagen
+            } else if (total >= 8) {
+                resultadoTexto = "🔧 Tienes potencial, pero a veces dudas.";
+                imagen = "gato3.png"; // Cambia por el nombre de tu imagen
+            } else {
+                resultadoTexto = "😭 Quizá la computación no es lo tuyo… pero nunca es tarde para intentarlo.";
+                imagen = "gato1.png"; // Cambia por el nombre de tu imagen
+            }
 
             document.getElementById("resultado").textContent = resultadoTexto;
+            document.getElementById("imagenResultado").src = imagen;
+            
+            abrirModal();
+        }
+
+        function abrirModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
         }
     </script>
 </body>
