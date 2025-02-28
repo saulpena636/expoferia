@@ -1,0 +1,22 @@
+.html {
+    margin: 0;
+    padding: 0;
+}
+.titleContainer {
+    /* width: 1728px; */
+    height: 240px;
+    flex-shrink: 0;
+    background: #F20505;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #FFF;
+    font-family: Sixtyfour;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
