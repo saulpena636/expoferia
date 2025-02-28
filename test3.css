@@ -10,7 +10,7 @@ body {
 }
 
 .titleContainer {
-    /* width: 1728px; */
+    width: 1728px;
     height: 240px;
     flex-shrink: 0;
     background: #F20505;
@@ -28,8 +28,19 @@ body {
     line-height: normal;
 }
 
-.questionContainer {
+.questionsContainer {
+    margin-top: 160px;
+    gap: 90px;
+    display: flex;
+}
+
+.containerQuestionAnswer {
     position: relative;
+    margin-left: 81px;
+}
+
+.questionContainer {
+    position: absolute;
     width: 783px;
     height: 150px;
     top: 0;
@@ -60,7 +71,7 @@ body {
     position: absolute;
     top: 55px;
     left: 69px;
-    font-family: "Montserrat-Regular", Helvetica;
+    font-family: "Montserrat", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 32px;
@@ -72,10 +83,47 @@ body {
     position: absolute;
     top: 55px;
     left: 150px;
-    font-family: "Montserrat-Regular", Helvetica;
+    font-family: "Montserrat", Helvetica;
     font-weight: 400;
     color: #000000;
     font-size: 32px;
     letter-spacing: 0;
+    line-height: normal;
+}
+
+.codeContainer {
+    position: absolute;
+    left: 925px;
+    width: 475px;
+    height: 376px;
+    flex-shrink: 0;
+    background-color: rgba(217, 217, 217, 0.50);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code {
+    width: 361px;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.answerContainer {
+    position: absolute;
+    width: 492px;
+    height: 166px;
+    top: 153px;
+    left: 120px;
+    color: #000;
+    font-family: 'Montserrat', Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
     line-height: normal;
 }
