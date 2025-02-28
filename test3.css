@@ -10,7 +10,7 @@ body {
 }
 
 .titleContainer {
-    width: 1728px;
+    width: auto;
     height: 240px;
     flex-shrink: 0;
     background: #F20505;
@@ -32,16 +32,18 @@ body {
     margin-top: 160px;
     gap: 90px;
     display: flex;
+    flex-direction: column;
 }
 
 .containerQuestionAnswer {
     position: relative;
     margin-left: 81px;
+    height: 370px;
 }
 
 .questionContainer {
     position: absolute;
-    width: 783px;
+    width: 850px;
     height: 150px;
     top: 0;
     left: 0;
@@ -59,7 +61,7 @@ body {
 
 .rectangle {
     position: absolute;
-    width: 740px;
+    width: 790px;
     height: 98px;
     top: 26px;
     left: 43px;
@@ -94,7 +96,7 @@ body {
 .codeContainer {
     position: absolute;
     left: 925px;
-    width: 475px;
+    width: 700px;
     height: 376px;
     flex-shrink: 0;
     background-color: rgba(217, 217, 217, 0.50);
@@ -105,7 +107,7 @@ body {
 }
 
 .code {
-    width: 361px;
+    /*width: 361px;*/
     color: #000;
     font-family: Montserrat;
     font-size: 24px;
