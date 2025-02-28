@@ -27,3 +27,55 @@ body {
     font-weight: 400;
     line-height: normal;
 }
+
+.questionContainer {
+    position: relative;
+    width: 783px;
+    height: 150px;
+    top: 0;
+    left: 0;
+}
+
+.ellipse {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 0;
+    left: 0;
+    background-color: #d9d9d9;
+    border-radius: 75px;
+}
+
+.rectangle {
+    position: absolute;
+    width: 740px;
+    height: 98px;
+    top: 26px;
+    left: 43px;
+    background-color: #d9d9d9;
+    border-radius: 40px;
+}
+
+.questionNumber {
+    position: absolute;
+    top: 55px;
+    left: 69px;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.question {
+    position: absolute;
+    top: 55px;
+    left: 150px;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: normal;
+}
