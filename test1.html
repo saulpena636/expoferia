@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Test: ¿Tienes perfil de Ingeniero en Computación?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>¿Tienes perfil de Ingeniero en Computación?</h2>
+        <p>Responde estas preguntas y descubre tu nivel de afinidad con la tecnología.</p>
+        
+        <form id="testForm">
+            <p>1. ¿Qué haces cuando tu computadora tiene un problema?</p>
+            <input type="radio" name="q1" value="3"> Investigo y trato de solucionarlo.<br>
+            <input type="radio" name="q1" value="2"> Pido ayuda.<br>
+            <input type="radio" name="q1" value="1"> Me frustro y lo dejo.<br><br>
+
+            <p>2. ¿Cómo te gustaría aprender programación?</p>
+            <input type="radio" name="q2" value="3"> Creando proyectos.<br>
+            <input type="radio" name="q2" value="2"> Viendo tutoriales.<br>
+            <input type="radio" name="q2" value="1"> No me interesa.<br><br>
+
+            <p>3. ¿Te interesaría trabajar en tecnología?</p>
+            <input type="radio" name="q3" value="3"> Sí, me encantaría.<br>
+            <input type="radio" name="q3" value="2"> Tal vez.<br>
+            <input type="radio" name="q3" value="1"> No, prefiero otras áreas.<br><br>
+
+            <p>4. ¿Qué opinas de la inteligencia artificial?</p>
+            <input type="radio" name="q4" value="3"> Es el futuro.<br>
+            <input type="radio" name="q4" value="2"> Es interesante.<br>
+            <input type="radio" name="q4" value="1"> No me interesa.<br><br>
+
+            <p>5. ¿Qué te llama más la atención en la tecnología?</p>
+            <input type="radio" name="q5" value="3"> Crear soluciones.<br>
+            <input type="radio" name="q5" value="2"> Usarla.<br>
+            <input type="radio" name="q5" value="1"> Redes sociales.<br><br>
+
+            <button type="button" onclick="calcularResultado()">Ver resultado</button>
+        </form>
+
+        <p class="resultado" id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularResultado() {
+            let total = 0;
+            let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+            respuestas.forEach(r => total += parseInt(r.value));
+
+            let resultadoTexto = total >= 12 ? "🚀 ¡Tienes un gran perfil para Ingeniería en Computación!" :
+                               total >= 8 ? "🔧 Tienes interés en tecnología." :
+                               "🎮 Te gusta la tecnología, pero podrías explorar más.";
+
+            document.getElementById("resultado").textContent = resultadoTexto;
+        }
+    </script>
+</body>
+</html>

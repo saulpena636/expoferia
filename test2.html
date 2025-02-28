@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Test: Lógica Computacional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>¿Tienes habilidades en lógica computacional?</h2>
+        <p>Responde estas preguntas y pon a prueba tu capacidad lógica.</p>
+
+        <form id="testForm">
+            <p>1. Si 2 + 3 = 10, 3 + 4 = 21, entonces 4 + 5 = ?</p>
+            <input type="radio" name="q1" value="3"> 35<br>
+            <input type="radio" name="q1" value="2"> 30<br>
+            <input type="radio" name="q1" value="1"> 25<br><br>
+
+            <p>2. ¿Cuál es el siguiente número en la serie? 2, 6, 12, 20, ...</p>
+            <input type="radio" name="q2" value="3"> 30<br>
+            <input type="radio" name="q2" value="2"> 28<br>
+            <input type="radio" name="q2" value="1"> 32<br><br>
+
+            <p>3. ¿Cuál es la respuesta a esta secuencia lógica? A, C, F, J, ...</p>
+            <input type="radio" name="q3" value="3"> O<br>
+            <input type="radio" name="q3" value="2"> N<br>
+            <input type="radio" name="q3" value="1"> M<br><br>
+
+            <p>4. Si un tren viaja a 60 km/h y tarda 2 horas en llegar, ¿qué distancia recorrió?</p>
+            <input type="radio" name="q4" value="3"> 120 km<br>
+            <input type="radio" name="q4" value="2"> 100 km<br>
+            <input type="radio" name="q4" value="1"> 140 km<br><br>
+
+            <p>5. ¿Cuál es el resultado de 100 - 25 * 2?</p>
+            <input type="radio" name="q5" value="3"> 50<br>
+            <input type="radio" name="q5" value="2"> 150<br>
+            <input type="radio" name="q5" value="1"> 75<br><br>
+
+            <button type="button" onclick="calcularResultado()">Ver resultado</button>
+        </form>
+
+        <p class="resultado" id="resultado"></p>
+    </div>
+
+    <script>
+        function calcularResultado() {
+            let total = 0;
+            let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+            respuestas.forEach(r => total += parseInt(r.value));
+
+            let resultadoTexto = total >= 12 ? "🚀 ¡Tienes una gran habilidad lógica!" :
+                               total >= 8 ? "🔧 Tienes un buen razonamiento lógico." :
+                               "🎮 Puedes mejorar tus habilidades de pensamiento lógico.";
+
+            document.getElementById("resultado").textContent = resultadoTexto;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Test: Encuentra el error en código</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>¿Puedes encontrar errores en código?</h2>
+        <p>Observa los siguientes fragmentos de código y elige la opción correcta.</p>
+
+        <p>1. ¿Qué error tiene este código?</p>
+        <pre>
+x = 5
+y = 3
+z = x + y
+prnt(z)
+        </pre>
+        <input type="radio" name="q1" value="3"> Falta una variable.<br>
+        <input type="radio" name="q1" value="2"> Error de sintaxis en "prnt".<br>
+        <input type="radio" name="q1" value="1"> No hay error.<br><br>
+
+        <p>2. ¿Cuál es el error en este fragmento?</p>
+        <pre>
+for i in range(5)
+    print(i)
+        </pre>
+        <input type="radio" name="q2" value="3"> Falta ":" en la línea del for.<br>
+        <input type="radio" name="q2" value="2"> El rango debe ser (1,5).<br>
+        <input type="radio" name="q2" value="1"> No hay error.<br><br>
+
+        <p>3. ¿Qué salida imprimirá este código?</p>
+        <pre>
+x = 10
+y = 0
+print(x / y)
+        </pre>
+        <input type="radio" name="q3" value="3"> Error de división por cero.<br>
+        <input type="radio" name="q3" value="2"> 0<br>
+        <input type="radio" name="q3" value="1"> 10<br><br>
+
+        <p>4. ¿Cuál es el error en este código en C?</p>
+        <pre>
+int main() {
+    printf("Hola Mundo");
+    return;
+}
+        </pre>
+        <input type="radio" name="q4" value="3"> Falta un valor en "return".<br>
+        <input type="radio" name="q4" value="2"> printf debería ser print.<br>
+        <input type="radio" name="q4" value="1"> No hay error.<br><br>
+
+        <p>5. ¿Cómo se arreglaría este código en JavaScript?</p>
+        <pre>
+let num = 5
+console.log(Num);
+        </pre>
+        <input type="radio" name="q5" value="3"> Cambiar "Num" por "num".<br>
+        <input type="radio" name="q5" value="2"> Cambiar console.log por print.<br>
+        <input type="radio" name="q5" value="1"> No hay error.<br><br>
+
+        <button onclick="verificarCodigo()">Verificar</button>
+        <p class="resultado" id="respuesta"></p>
+    </div>
+
+    <script>
+        function verificarCodigo() {
+            let total = 0;
+            let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+            respuestas.forEach(r => total += parseInt(r.value));
+
+            let resultadoTexto = total >= 12 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
+                               total >= 8 ? "🔧 Estás en buen camino para analizar código." :
+                               "🎮 Sigue practicando para mejorar tu análisis de código.";
+
+            document.getElementById("respuesta").textContent = resultadoTexto;
+        }
+    </script>
+</body>
+</html>
