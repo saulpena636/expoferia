@@ -10,11 +10,61 @@
     <link rel="stylesheet" href="test3.css">
 </head>
 <body>
-    <div class="titleContainer">
-        <div class="title">Encuentra los Errores</div>
-    </div>
     <div class="container">
-        <h2>¿Puedes encontrar errores en código?</h2>
+        
+        <div class="titleContainer">
+            <div class="title">Encuentra los Errores</div>
+        </div>
+
+        <div class="questionsContainer">
+            <!--Pregunta 1 >
+            <div class="containerQuestionAnswer">
+                <div class="questionContainer">
+                    <div class="ellipse"></div>
+                    <div class="rectangle"></div>
+                    <div class="questionNumber">1</div>
+                    <div class="question">¿Qué error tiene este código?</div>
+                </div>
+                
+                <div class="codeContainer">
+                    <div class="code">
+                        <pre>
+x = 5
+y = 3
+z = x + y
+prnt(z)
+                        </pre>
+                    </div>
+                </div>
+    
+                <div class="answerContainer">
+                    <input type="radio" name="q1" value="3"> Falta una variable.<br>
+                    <input type="radio" name="q1" value="2"> Error de sintaxis en "prnt".<br>
+                    <input type="radio" name="q1" value="1"> No hay error.<br><br>
+                </div>
+            </div>-->
+    
+        </div>
+
+        <div class="buttonContainer">
+            <button onclick="verificarCodigo()" class="button">ENVIAR</button>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h3 id="resultado"></h3>
+            <img id="imagenResultado" src="" alt="Resultado">
+            <br>
+            <button class="close" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="3.js"></script>
+    
+    <!-- <div class="container">
         <p>Observa los siguientes fragmentos de código y elige la opción correcta.</p>
 
         <p>1. ¿Qué error tiene este código?</p>
@@ -69,9 +119,9 @@ console.log(Num);
 
         <button onclick="verificarCodigo()">Verificar</button>
         <p class="resultado" id="respuesta"></p>
-    </div>
+    </div> -->
 
-    <script>
+    <!--script>
         function verificarCodigo() {
             let total = 0;
             let respuestas = document.querySelectorAll('input[type="radio"]:checked');
@@ -82,7 +132,18 @@ console.log(Num);
                                "🎮 Sigue practicando para mejorar tu análisis de código.";
 
             document.getElementById("respuesta").textContent = resultadoTexto;
+            document.getElementById("imagenResultado").src = imagen;
+            
+            abrirModal();
         }
-    </script>
+
+        function abrirModal() {
+            document.getElementById("modal").style.display = "flex";
+        }
+
+        function cerrarModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script-->
 </body>
 </html>
