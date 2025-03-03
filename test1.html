@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Test: ¿Serías un buen Ingeniero en Computación?</title>
-    <link rel="stylesheet" href="style.css">
+
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             background-color: #f4f4f4;
         }
+
         .container {
             max-width: 600px;
             margin: auto;
@@ -19,6 +21,7 @@
             border-radius: 10px;
             box-shadow: 0px 0px 10px gray;
         }
+
         button {
             background: #008CBA;
             color: white;
@@ -28,6 +31,7 @@
             font-size: 16px;
             border-radius: 5px;
         }
+
         button:hover {
             background: #005f73;
         }
@@ -45,6 +49,7 @@
             justify-content: center;
             align-items: center;
         }
+
         .modal-content {
             background: white;
             padding: 20px;
@@ -53,10 +58,12 @@
             width: 300px;
             box-shadow: 0px 0px 10px black;
         }
+
         .modal img {
             width: 120px;
             margin-top: 10px;
         }
+
         .close {
             background: red;
             color: white;
@@ -69,6 +76,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>¿Serías un buen Ingeniero en Computación? 🤖💻</h2>
@@ -142,7 +150,7 @@
 
             document.getElementById("resultado").textContent = resultadoTexto;
             document.getElementById("imagenResultado").src = imagen;
-            
+
             abrirModal();
         }
 
@@ -152,7 +160,9 @@
 
         function cerrarModal() {
             document.getElementById("modal").style.display = "none";
+            window.location.href = "index.html";
         }
     </script>
 </body>
+
 </html>
