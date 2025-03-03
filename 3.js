@@ -192,3 +192,26 @@ preguntasAleatoriasIndices.forEach((indice, index) => {
     // Agregamos el div de la pregunta al contenedor
     contenedorPreguntas.appendChild(preguntaElemento);
 });
+
+function verificarCodigo() {
+    let total = 0;
+    let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+    respuestas.forEach(r => total += parseInt(r.value));
+
+    let resultadoTexto = total >= 12 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
+                       total >= 8 ? "🔧 Estás en buen camino para analizar código." :
+                       "🎮 Sigue practicando para mejorar tu análisis de código.";
+    let imagen = "";
+    document.getElementById("resultado").textContent = resultadoTexto;
+    document.getElementById("imagenResultado").src = imagen;
+    
+    abrirModal();
+}
+
+function abrirModal() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function cerrarModal() {
+    document.getElementById("modal").style.display = "none";
+}
