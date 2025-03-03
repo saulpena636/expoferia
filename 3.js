@@ -9,7 +9,7 @@ var preguntas =[
     },
     {
         pregunta : "¿Qué error tiene este código en C?",
-        a : " x debe ser de tipo char * en lugar de int",
+        a : " x no debería tener \"\" ",
         b : "Falta la librería <stdlib.h>",
         c : "printf necesita una conversión explícita",
         d : "No hay error",
@@ -83,7 +83,7 @@ var preguntas =[
         pregunta : "¿Qué error tiene este código en Python?",
         a : "x debe convertirse a entero antes de sumarlo",
         b : "Falta punto y coma en print(y)",
-        c : "input necesita int() antes",
+        c : "Debería de ser scan",
         d : "No hay error",
         correct : 'a'
     },
@@ -123,20 +123,20 @@ var preguntas =[
 
 
 var codigos = [
-    "#include <stdio.h>\n\n\nint main() {\n\tprintf(\"Hola, mundo!\")\n\treturn 0;\n}",
-    "#include <stdio.h>\n\nint main() {\n\tint x = \"10\";\n\tprintf(\"%d\", x);\n\treturn 0;\n}",
-    "#include <stdio.h>\n\nint main() {\n\tint numero;\n\tprintf(\"Ingrese un número: \");\n\tscanf(\"%d\", &numero);\n\treturn 0;\n}",
+    "#include &lt;stdio.h&gt;\n\n\nint main() {\n\tprintf(\"Hola, mundo!\")\n\treturn 0;\n}",
+    "#include &lt;stdio.h&gt;\n\nint main() {\n\tint x = \"10\";\n\tprintf(\"%d\", x);\n\treturn 0;\n}",
+    "#include &lt;stdio.h&gt;\n\nint main() {\n\tint numero;\n\tprintf(\"Ingrese un número: \");\n\tscanf(\"%d\", numero);\n\treturn 0;\n}",
     "print \"Hola, mundo!\"",
-    "x = 10\nif x == 5:\n\tprint(\"x es 5\")",
-    "def saludar():\n\tprint(\"Hola\")",
-    "public class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println(\"Hola, mundo!\");\n\t}\n}",
+    "x = 10\nif x = 5:\n\tprint(\"x es 5\")",
+    "def saludar()\n\tprint(\"Hola\")",
+    "public class Main {\n\tpublic static void main(String[] args) {\n\t\tSystem.out.println \"Hola, mundo!\" ;\n\t}\n}",
     "public class Main {\n\tpublic static void main(String[] args) {\n\t\tint numero = \"10\";\n\t\tSystem.out.println(numero);\n\t}\n}",
-    "public class Main {\n\tpublic static void main(String[] args) {\n\t\tint x = 5;\n\t\tif (x == 10) {\n\t\t\tSystem.out.println(\"x es 10\");\n\t\t}\n\t}\n}",
+    "public class Main {\n\tpublic static void main(String[] args) {\n\t\tint x = 5;\n\t\tif (x = 10) {\n\t\t\tSystem.out.println(\"x es 10\");\n\t\t}\n\t}\n}",
     "int main() {\n\tprintf(\"Hola, mundo!\\n\");\n}",
     "x = input(\"Ingresa un número: \")\ny = x + 5\nprint(y)",
     "class Main {\n\tpublic static void main() {\n\t\tSystem.out.println(\"Hola, mundo!\");\n\t}\n}",
-    "#include <stdio.h>\n\nint main() {\n\tchar nombre[10];\n\tgets(nombre);\n\tprintf(\"Hola, %s\", nombre);\n\treturn 0;\n}",
-    "for i in range(5):\n\tprint(i)",
+    "#include &lt;stdio.h&gt;\n\nint main() {\n\tchar nombre[10];\n\tgets(nombre);\n\tprintf(\"Hola, %s\", nombre);\n\treturn 0;\n}",
+    "for i in range(5)\n\tprint(i)",
     "public class Main {\n\tpublic static void main(String[] args) {\n\t\tString nombre = \'Juan\';\n\t\tSystem.out.println(nombre);\n\t}\n}"
 ]
 
@@ -194,14 +194,15 @@ preguntasAleatoriasIndices.forEach((indice, index) => {
 });
 
 function verificarCodigo() {
-    let total = 0;
-    let respuestas = document.querySelectorAll('input[type="radio"]:checked');
-    respuestas.forEach(r => total += parseInt(r.value));
+    let totalCorrectas = contarRespuestasCorrectas();
 
-    let resultadoTexto = total >= 12 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
-                       total >= 8 ? "🔧 Estás en buen camino para analizar código." :
+    let resultadoTexto = totalCorrectas >= 4 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
+                        totalCorrectas >= 2 ? "🔧 Estás en buen camino para analizar código." :
                        "🎮 Sigue practicando para mejorar tu análisis de código.";
-    let imagen = "";
+    resultadoTexto = `Tienes ${totalCorrectas}/5 aciertos ` + resultadoTexto;
+    let imagen = totalCorrectas >= 4 ? " gato2.png" :
+                 totalCorrectas >= 2 ? "gato3.png" :
+                 "gato1.png";
     document.getElementById("resultado").textContent = resultadoTexto;
     document.getElementById("imagenResultado").src = imagen;
     
@@ -214,4 +215,18 @@ function abrirModal() {
 
 function cerrarModal() {
     document.getElementById("modal").style.display = "none";
+    window.location.href = "index.html"
+}
+
+function contarRespuestasCorrectas() {
+    let correctas = 0;
+
+    for (let i = 0; i < preguntas.length; i++) {  
+        let seleccionada = document.querySelector(`input[name="q${i}"]:checked`);
+        if (seleccionada && seleccionada.value === "1") {  
+            correctas++;
+        }
+    }
+
+    return correctas;
 }
