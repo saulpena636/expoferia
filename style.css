@@ -1,48 +1,31 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #f4f4f4;
+    background: rgb(0, 0, 0);
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
 }
 
-.container {
-    width: 50%;
-    margin: auto;
+canvas {
+    background: rgb(0, 0, 0)
+}
+
+.indicacion {
+    width: 360px;
+    height: auto;
     padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px gray;
-    border-radius: 10px;
+    border: 10px double white;
 }
 
-button {
-    padding: 10px;
-    margin-top: 10px;
-    background: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
+@font-face {
+    font-family: 'Arcade';
+    src: url('./Fonts/ARCADECLASSIC.TTF') format('truetype');
 }
 
-button:hover {
-    background: #0056b3;
-}
-
-.resultado {
-    margin-top: 20px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.buttons a {
-    display: block;
-    padding: 15px;
-    margin: 10px auto;
-    background: #28a745;
-    color: white;
-    text-decoration: none;
-    width: 80%;
-    border-radius: 5px;
-}
-
-.buttons a:hover {
-    background: #218838;
+p,
+li {
+    color: #fff;
+    margin: 0;
+    font-family: Arcade;
+    font-size: 16px;
+    word-spacing: 4px;
 }
