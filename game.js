@@ -87,7 +87,7 @@ for (var j = 0; j < 31; j++) {
 document.addEventListener("keydown", detectarTecla);
 
 img2.onload = function () {
-    setInterval(draw, 30);
+    setInterval(draw, 15);
     setInterval(anim1, 400);
     setInterval(animp, 90)
 }
@@ -180,22 +180,22 @@ function animp() {
 }
 
 function detectarTecla(e) {
-    if (e.keyCode == 39 || e.keyCode == 68) { // Flecha derecha o 'D'
+    if ((e.keyCode == 39 || e.keyCode == 68) && (M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 47)) { // Flecha derecha o 'D'
         console.log("Avanzando a la derecha");
         ctrlp = 1;
         orgp = 0;
     }
-    if (e.keyCode == 37 || e.keyCode == 65) { // Flecha izquierda o 'A'
+    if ((e.keyCode == 37 || e.keyCode == 65) && (M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 47)) { // Flecha izquierda o 'A'
         console.log("Avanzando a la izquierda");
         ctrlp = 2;
         orgp = 300;
     }
-    if (e.keyCode == 38 || e.keyCode == 87) { // Flecha arriba o 'W'
+    if ((e.keyCode == 38 || e.keyCode == 87) && (M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47)) { // Flecha arriba o 'W'
         console.log("Avanzando arriba");
         ctrlp = 3;
         orgp = 450;
     }
-    if (e.keyCode == 40 || e.keyCode == 83) { // Flecha abajo o 'S'
+    if ((e.keyCode == 40 || e.keyCode == 83) && (M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47)) { // Flecha abajo o 'S'
         console.log("Avanzando abajo");
         ctrlp = 4;
         orgp = 150;
