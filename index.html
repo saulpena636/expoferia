@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Tests de Tecnología</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Mini Tests de Tecnología</h1>
-        <p>Elige un test para evaluar tus habilidades en tecnología y computación.</p>
+<html>
 
-        <div class="buttons">
-            <a href="test1.html">🖥️ ¿Tienes perfil de Ingeniero en Computación?</a>
-            <a href="test2.html">🧠 ¿Tienes habilidades en lógica computacional?</a>
-            <a href="test3.html">🔍 ¿Puedes encontrar errores en código?</a>
-        </div>
-    </div>
+<head>
+    <meta charset="utf-8">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <title>Mini Tests de Tecnología</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <canvas id="juego1" width="672" height="800">
+                    Tu navegador no soporta canvas
+                </canvas>
+            </td>
+            <td>
+                <div class="indicacion">
+                    <p>Use las flechas de navegacion para dirigir a Pac-Man a un test o bien toca un numero para elegir
+                        un
+                        test</p>
+                    <ol>
+                        <li>🖥️ ¿Tienes perfil de Ingeniero en Computación?</li>
+                        <li>🧠 ¿Tienes habilidades en lógica computacional?</li>
+                        <li>🔍 ¿Puedes encontrar errores en código?</li>
+                    </ol>
+
+                </div>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="game.js"></script>
 </body>
+
 </html>

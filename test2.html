@@ -106,9 +106,60 @@
           </div>
         </div>
 
-        <button type="button" onclick="calcularResultado()">Ver resultado</button>
+        <button type="button" onclick="calcularResultado()">ENVIAR</button>
       </form>
     </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h3 id="resultado"></h3>
+        <img id="imagenResultado" src="" alt="Resultado">
+        <br>
+        <button class="close" onclick="cerrarModal()">Cerrar</button>
+      </div>
+    </div>
+
+    <script>
+      function calcularResultado() {
+        let total = 0;
+        let respuestas = document.querySelectorAll('input[type="radio"]:checked');
+
+        if (respuestas.length < 5) {
+          alert("❗ Responde todas las preguntas antes de ver tu resultado.");
+          return;
+        }
+
+        respuestas.forEach(r => total += parseInt(r.value));
+
+        let resultadoTexto = "";
+        let imagen = "";
+
+        if (total >= 12) {
+          resultadoTexto = "🚀 ¡Tienes una gran habilidad lógica!";
+          imagen = "gato2.png"; // Cambia por el nombre de tu imagen
+        } else if (total >= 8) {
+          resultadoTexto = "🔧 Tienes un buen razonamiento lógico.";
+          imagen = "gato3.png"; // Cambia por el nombre de tu imagen
+        } else {
+          resultadoTexto = "🎮 Puedes mejorar tus habilidades de pensamiento lógico.";
+          imagen = "gato1.png"; // Cambia por el nombre de tu imagen
+        }
+
+        document.getElementById("resultado").textContent = resultadoTexto;
+        document.getElementById("imagenResultado").src = imagen;
+
+        abrirModal();
+      }
+
+      function abrirModal() {
+        document.getElementById("modal").style.display = "flex";
+      }
+
+      function cerrarModal() {
+        document.getElementById("modal").style.display = "none";
+      }
+    </script>
   </main>
 </body>
 
