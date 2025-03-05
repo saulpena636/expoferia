@@ -51,7 +51,7 @@ var preguntas =[
         pregunta : "¿Qué error tiene este código en Java?",
         a : "main debe estar en mayúsculas",
         b : "Falta un punto y coma después de println",
-        c : "System.out.println debe llevar paréntes",
+        c : "System.out.println debe llevar paréntesis",
         d : "No hay error",
         correct : 'c'
     },
