@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'Sixtyfour';
+    src: url('fontsTest1/Sixtyfour-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fontsTest1/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* Soporta todo el rango de pesos */
+    font-style: normal;
+}
+
+.titleContainer {
+    width: auto;
+    height: 240px;
+    flex-shrink: 0;
+    background: #2121FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    color: #FFF;
+    font-family: 'Sixtyfour', Arial, sans-serif; 
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/** Diseños para las preguntas **/
+#testForm {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+.nuevoFormulario {
+  width: 75%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+.contenedorPregunta {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.contenedorNumero {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  background: #D9D9D9;
+  border-radius: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+/* Es para que no se resalte al abrir el modal */
+.contenedorNumero:focus { 
+    outline: none;
+}
+.tipografiaMonse {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.tipografiaMonseRespuestas {
+  color: #000;
+  font-family: Montserrat;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.pregunta {
+  width: auto;
+  height: auto;
+  margin-left: -107px;
+  padding: 30px 60px 30px 107px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  background: #D9D9D9;
+}
+.input2 {
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 138px;
+  gap: 24px;
+}
+.contenedorOpcion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/** Diseños Karlita */
+
+ body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px gray;
+}
+
+.contenedorBotonEnviar {
+    display: flex;
+    justify-content: center;
+    width: 517px;
+    height: 110px;
+    margin: 0 auto;
+}
+
+.botonEnviar {
+    background-color: #2121FF;
+    border: none;
+    border-radius: 100px;
+    display: flex;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
+    color: var(--M3-sys-light-on-primary, var(--Schemes-On-Primary, #FFF));
+    text-align: center;
+    font-family: var(--String-2, Montserrat);
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--Label-Large-Line-Height, 20px); /* 62.5% */
+    letter-spacing: var(--Label-Large-Tracking, 0.1px);
+}
+
+
+.botonEnviar:hover {
+    background-color: #1A1ACC; /* Azul más oscuro en hover */
+}
+
+
+button {
+    background: #008CBA;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+button:hover {
+    background: #005f73;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0px 0px 10px black;
+}
+.modal img {
+    width: 120px;
+    margin-top: 10px;
+}
+.close {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+}

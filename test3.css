@@ -1,12 +1,29 @@
+@font-face {
+    font-family: 'Sixtyfour';
+    src: url('./Fonts/Sixtyfour-Regular.woff2') format('woff2'),
+        url('./Fonts/Sixtyfour-Regular.woff') format('woff'),
+        url('./Fonts/Sixtyfour-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    /* Soporta todo el rango de pesos */
+    font-style: normal;
+}
+
 * {
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
 }
 
 html,
 body {
-  margin: 0px;
-  height: 100%;
+    margin: 0px;
+    height: 100%;
 }
 
 .titleContainer {
@@ -155,7 +172,8 @@ body {
     font-size: 32px;
     font-style: normal;
     font-weight: 500;
-    line-height: var(--Label-Large-Line-Height, 20px); /* 62.5% */
+    line-height: var(--Label-Large-Line-Height, 20px);
+    /* 62.5% */
     letter-spacing: var(--Label-Large-Tracking, 0.1px);
 }
 
@@ -173,6 +191,7 @@ body {
     align-items: center;
     flex-direction: column;
 }
+
 .modal-content {
     background: white;
     padding: 20px;
@@ -182,10 +201,12 @@ body {
     max-width: 600px;
     box-shadow: 0px 0px 10px black;
 }
+
 .modal img {
     width: 120px;
     margin-top: 10px;
 }
+
 .close {
     background: red;
     color: white;
