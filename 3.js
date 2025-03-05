@@ -193,7 +193,73 @@ preguntasAleatoriasIndices.forEach((indice, index) => {
     contenedorPreguntas.appendChild(preguntaElemento);
 });
 
+// Modificar la función contarRespuestasCorrectas
+let respuestasIncorrectas = []; // Variable global para almacenar errores
+
+function contarRespuestasCorrectas() {
+    let correctas = 0;
+    respuestasIncorrectas = []; // Reiniciar array
+
+    preguntasAleatoriasIndices.forEach((indicePregunta, index) => {
+        const preguntaReal = preguntas[indicePregunta];
+        const seleccionada = document.querySelector(`input[name="q${index + 1}"]:checked`);
+        const userAnswer = seleccionada ? String.fromCharCode(97 + [...seleccionada.parentNode.children].indexOf(seleccionada)) : null;
+
+        if (seleccionada && seleccionada.value === "1") {
+            correctas++;
+        } else {
+            respuestasIncorrectas.push({
+                indice: indicePregunta,
+                pregunta: preguntaReal.pregunta,
+                codigo: codigos[indicePregunta],
+                respuestaUsuario: userAnswer,
+                correcta: preguntaReal.correct
+            });
+        }
+    });
+
+    return correctas;
+}
+
+// Modificar verificarCodigo para mostrar los errores
 function verificarCodigo() {
+    let totalCorrectas = contarRespuestasCorrectas();
+    
+    // ... código existente ...
+    let resultadoTexto = totalCorrectas >= 4 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
+                        totalCorrectas >= 2 ? "🔧 Estás en buen camino para analizar código." :
+                       "🎮 Sigue practicando para mejorar tu análisis de código.";
+    resultadoTexto = `Tienes ${totalCorrectas}/5 aciertos ` + resultadoTexto;
+    let imagen = totalCorrectas >= 4 ? " gato2.png" :
+                 totalCorrectas >= 2 ? "gato3.png" :
+                 "gato1.png";
+    document.getElementById("resultado").textContent = resultadoTexto;
+    document.getElementById("imagenResultado").src = imagen;
+
+    // Limpiar contenedor de errores
+    const erroresContainer = document.getElementById("erroresContainer");
+    erroresContainer.innerHTML = "";
+
+    // Agregar detalles de errores
+    respuestasIncorrectas.forEach(error => {
+        const preguntaReal = preguntas[error.indice];
+        // Modificar la sección donde se construye el HTML de errores
+        const errorHTML = `
+        <div class="error-item">
+            <h4>${error.pregunta}</h4>
+            <pre>${error.codigo}</pre>
+            <p>Tu respuesta: ${error.respuestaUsuario ? preguntaReal[error.respuestaUsuario.toLowerCase()] : 'Ninguna'}</p>
+            <p>Respuesta correcta: ${preguntaReal[preguntaReal.correct]}</p>
+        </div>
+        <hr>
+        `;
+        erroresContainer.innerHTML += errorHTML;
+    });
+
+    abrirModal();
+}
+
+/* function verificarCodigo() {
     let totalCorrectas = contarRespuestasCorrectas();
 
     let resultadoTexto = totalCorrectas >= 4 ? "🚀 ¡Tienes buena capacidad para detectar errores en código!" :
@@ -207,7 +273,7 @@ function verificarCodigo() {
     document.getElementById("imagenResultado").src = imagen;
     
     abrirModal();
-}
+} */
 
 function abrirModal() {
     document.getElementById("modal").style.display = "flex";
@@ -218,7 +284,7 @@ function cerrarModal() {
     window.location.href = "index.html"
 }
 
-function contarRespuestasCorrectas() {
+/* function contarRespuestasCorrectas() {
     let correctas = 0;
 
     for (let i = 0; i < preguntas.length; i++) {  
@@ -229,4 +295,4 @@ function contarRespuestasCorrectas() {
     }
 
     return correctas;
-}
+} */
