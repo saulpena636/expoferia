@@ -29,3 +29,47 @@ li {
     font-size: 16px;
     word-spacing: 4px;
 }
+
+.joystick {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.joystick-container {
+    display: grid;
+    grid-template-areas:
+        ". up ."
+        "left middle right"
+        ". down .";
+    gap: 5px;
+}
+
+.joystick-btn {
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    border: 2px solid #555;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    user-select: none; /* Evita que el texto se seleccione al hacer clic */
+}
+        
+.joystick-btn:active {
+    background-color: #555; /* Color al presionar el botón */
+}
+
+#joystick-up { grid-area: up; }
+#joystick-down { grid-area: down; }
+#joystick-left { grid-area: left; }
+#joystick-right { grid-area: right; }
+#joystick-middle { 
+    grid-area: middle; 
+    background-color: #444;
+}

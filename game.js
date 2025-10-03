@@ -73,6 +73,11 @@ var mm4 = 0;
 juego = 0;
 const rectTile = canvas.getBoundingClientRect();
 
+const btnUp = document.getElementById('joystick-up');
+const btnDown = document.getElementById('joystick-down');
+const btnLeft = document.getElementById('joystick-left');
+const btnRight = document.getElementById('joystick-right');
+
 let Esc = [1, 10, 10, 10, 10, 10, 10, 10, 10, 10, 43, 42, 10, 10, 58, 58, 91, 90, 58, 58, 58, 58, 58, 58, 58, 58, 58, 48, 3, 46, 46, 46, 46, 46, 46, 46, 46, 46, 25, 24, 46, 46, 94, 94, 73, 72, 94, 94, 94, 94, 94, 94, 94, 94, 94, 50, 3, 46, 23, 14, 14, 14, 14, 14, 38, 46, 25, 24, 46, 23, 70, 94, 73, 72, 94, 71, 62, 62, 62, 62, 62, 70, 94, 50, 3, 46, 27, 21, 21, 21, 21, 21, 26, 46, 25, 24, 46, 25, 72, 94, 73, 72, 94, 75, 68, 68, 68, 68, 68, 74, 94, 50, 3, 46, 46, 46, 46, 46, 46, 46, 46, 46, 25, 24, 46, 25, 72, 94, 73, 72, 94, 94, 94, 94, 94, 94, 94, 94, 94, 50, 7, 14, 14, 14, 14, 22, 46, 23, 22, 46, 25, 24, 46, 25, 72, 94, 73, 72, 94, 71, 70, 94, 71, 62, 62, 62, 62, 54, 21, 21, 21, 21, 21, 26, 46, 25, 24, 46, 25, 24, 46, 25, 72, 94, 73, 72, 94, 73, 72, 94, 75, 68, 68, 68, 68, 68, -1, 47, 46, 46, 46, 46, 46, 25, 24, 46, 27, 26, 46, 25, 72, 94, 75, 74, 94, 73, 72, 94, 94, 94, 94, 94, 95, -1, 14, 14, 14, 14, 14, 38, 46, 25, 24, 46, 46, 46, 46, 25, 72, 94, 94, 94, 94, 73, 72, 94, 71, 62, 62, 62, 62, 62, 9, 21, 21, 21, 21, 26, 46, 25, 36, 14, 14, 22, -1, 25, 72, -1, 71, 62, 62, 85, 72, 94, 75, 68, 68, 68, 68, 56, 3, 46, 46, 46, 46, 46, 46, 25, 34, 21, 21, 26, -1, 27, 74, -1, 75, 68, 68, 83, 72, 94, 94, 94, 94, 94, 94, 50, 3, 46, 23, 14, 14, 22, 46, 25, 24, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 73, 72, 94, 71, 62, 62, 70, 94, 50, 3, 46, 25, 45, 45, 24, 46, 25, 24, -1, 29, 13, 33, 332, 332, 80, 60, 76, -1, 73, 72, 94, 73, 93, 93, 72, 94, 50, 3, 46, 25, 45, 45, 24, 46, 25, 24, -1, 2, -1, -1, -1, -1, -1, -1, 51, -1, 73, 72, 94, 73, 93, 93, 72, 94, 50, 3, 46, 25, 45, 45, 24, 46, 25, 24, -1, 2, -1, -1, -1, -1, -1, -1, 51, -1, 73, 72, 94, 73, 93, 93, 72, 94, 50, 3, 46, 25, 45, 45, 24, 46, 25, 24, -1, 2, -1, -1, -1, -1, -1, -1, 147, -1, 169, 168, 190, 169, 189, 189, 168, 190, 146, 3, 46, 27, 21, 21, 26, 46, 27, 26, -1, 31, 11, 11, 11, 154, 154, 154, 174, -1, 171, 170, 190, 171, 164, 164, 170, 190, 146, 3, 46, 46, 46, 46, 46, 46, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 190, 190, 190, 190, 190, 190, 146, 3, 46, 23, 22, 46, 23, 14, 14, 14, 14, 14, 22, -1, 23, 166, -1, 167, 158, 158, 158, 158, 158, 166, 190, 167, 158, 158, 150, 3, 46, 25, 24, 46, 25, 34, 21, 21, 21, 21, 26, -1, 25, 168, -1, 171, 164, 164, 164, 164, 179, 168, 190, 171, 164, 164, 164, 3, 46, 25, 24, 46, 25, 24, 46, 46, 46, 46, 46, -1, 25, 168, -1, 190, 190, 190, 190, 190, 169, 168, 190, 190, 190, 191, -1, 3, 46, 25, 24, 46, 25, 24, 46, 23, 14, 14, 14, 14, 37, 180, 158, 158, 158, 158, 166, 190, 169, 168, 190, 167, 158, 158, 158, 3, 46, 27, 26, 46, 25, 24, 46, 27, 21, 21, 21, 21, 21, 164, 164, 164, 164, 164, 170, 190, 169, 168, 190, 171, 164, 164, 152, 3, 46, 46, 46, 46, 25, 24, 46, 46, 46, 46, 46, 46, -1, -1, 190, 190, 190, 190, 190, 190, 169, 168, 190, 190, 190, 190, 146, 3, 46, 23, 22, 46, 25, 36, 14, 14, 14, 14, 22, 46, 23, 166, 190, 167, 158, 158, 158, 158, 181, 168, 190, 167, 166, 190, 146, 3, 46, 25, 24, 46, 25, 34, 21, 21, 21, 21, 26, 46, 25, 168, 190, 171, 164, 164, 164, 164, 179, 168, 190, 169, 168, 190, 146, 3, 46, 25, 24, 46, 25, 24, 46, 46, 46, 46, 46, 46, 25, 168, 190, 190, 190, 190, 190, 190, 169, 168, 190, 169, 168, 190, 146, 3, 46, 25, 24, 46, 25, 24, 46, 23, 14, 14, 22, 46, 25, 168, 190, 167, 158, 158, 166, 190, 169, 168, 190, 169, 168, 190, 146, 3, 46, 27, 26, 46, 27, 26, 46, 27, 21, 21, 26, 46, 25, 168, 190, 171, 164, 164, 170, 190, 171, 170, 190, 171, 170, 190, 146, 3, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 46, 25, 168, 190, 190, 190, 190, 190, 190, 190, 190, 190, 190, 190, 190, 146, 5, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 37, 180, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 156, 148]
 
 var M = [];
@@ -85,6 +90,10 @@ for (var j = 0; j < 31; j++) {
 }
 
 document.addEventListener("keydown", detectarTecla);
+btnRight.addEventListener('click', tryMoveRight);
+btnLeft.addEventListener('click', tryMoveLeft);
+btnUp.addEventListener('click', tryMoveUp);
+btnDown.addEventListener('click', tryMoveDown);
 
 img2.onload = function () {
     setInterval(draw, 15);
@@ -180,25 +189,17 @@ function animp() {
 }
 
 function detectarTecla(e) {
-    if ((e.keyCode == 39 || e.keyCode == 68) && (M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 47)) { // Flecha derecha o 'D'
-        console.log("Avanzando a la derecha");
-        ctrlp = 1;
-        orgp = 0;
+    if (e.keyCode == 39 || e.keyCode == 68) { // Flecha derecha o 'D'
+        tryMoveRight();
     }
-    if ((e.keyCode == 37 || e.keyCode == 65) && (M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 47)) { // Flecha izquierda o 'A'
-        console.log("Avanzando a la izquierda");
-        ctrlp = 2;
-        orgp = 300;
+    if (e.keyCode == 37 || e.keyCode == 65) { // Flecha izquierda o 'A'
+        tryMoveLeft();
     }
-    if ((e.keyCode == 38 || e.keyCode == 87) && (M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47)) { // Flecha arriba o 'W'
-        console.log("Avanzando arriba");
-        ctrlp = 3;
-        orgp = 450;
+    if (e.keyCode == 38 || e.keyCode == 87) { // Flecha arriba o 'W'
+        tryMoveUp();
     }
-    if ((e.keyCode == 40 || e.keyCode == 83) && (M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47)) { // Flecha abajo o 'S'
-        console.log("Avanzando abajo");
-        ctrlp = 4;
-        orgp = 150;
+    if (e.keyCode == 40 || e.keyCode == 83) { // Flecha abajo o 'S'
+        tryMoveDown();
     }
 }
 
@@ -404,4 +405,40 @@ function leerContenido() {
 
     }
     drawEscenario();
+}
+
+function tryMoveRight() {
+    // Revisa si el camino está libre a la derecha
+    if (M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp + 36) / 24)] % 48 == 47) {
+        console.log("Avanzando a la derecha");
+        ctrlp = 1;
+        orgp = 0;
+    }
+}
+
+function tryMoveLeft() {
+    // Revisa si el camino está libre a la izquierda
+    if (M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] == -1 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 46 || M[Math.floor((yp + 16) / 24)][Math.floor((xp) / 24)] % 48 == 47) {
+        console.log("Avanzando a la izquierda");
+        ctrlp = 2;
+        orgp = 300;
+    }
+}
+
+function tryMoveUp() {
+    // Revisa si el camino está libre arriba
+    if (M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47) {
+        console.log("Avanzando arriba");
+        ctrlp = 3;
+        orgp = 450;
+    }
+}
+
+function tryMoveDown() {
+    // Revisa si el camino está libre abajo
+    if (M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] == -1 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 46 || M[Math.floor((yp + 33) / 24)][Math.floor((xp + 17) / 24)] % 48 == 47) {
+        console.log("Avanzando abajo");
+        ctrlp = 4;
+        orgp = 150;
+    }
 }
